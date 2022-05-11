@@ -1,0 +1,7 @@
+/doc/
+/target/
+/.idea/
+/offer.iml/
+/workspace.xml
+out
+.gittignore
