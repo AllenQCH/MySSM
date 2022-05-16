@@ -1,6 +1,10 @@
 package com.itheima.config;
 
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
+
 
 //整合spring与springmvc；web容器配置类
 public class ServletConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -19,8 +23,16 @@ public class ServletConfig extends AbstractAnnotationConfigDispatcherServletInit
         return new Class[]{SpringMvcConfig.class};  //当web容器启动时，这个配置类加载他对应的bean；
     }
 
-    //设置由springmvc控制器处理的请求映射路径
+    //设置由springmvc控制器处理的请求映射路径;设置SpringMVC请求地址拦截规则
     protected String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    //设置post请求中文乱码过滤器
+    @Override
+    protected Filter[] getServletFilters() {
+        CharacterEncodingFilter filter = new CharacterEncodingFilter();
+        filter.setEncoding("utf-8");
+        return new Filter[]{filter};
     }
 }
