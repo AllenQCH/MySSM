@@ -20,12 +20,15 @@
   </properties>
 
   <dependencies>
+    <!--引入spring的三个依赖以及springmvc的依赖-->
+<!--    而这个webmvc中会自动添加spring-context（ioc容器所在位置）依赖-->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
       <version>5.2.10.RELEASE</version>
     </dependency>
-
+<!--以前使用xml文件的时候    //获取IOC容器-->
+<!--    ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");-->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
@@ -38,6 +41,7 @@
       <version>5.2.10.RELEASE</version>
     </dependency>
 
+    <!--引入mybatis的依赖-->
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>
@@ -50,18 +54,21 @@
       <version>1.3.0</version>
     </dependency>
 
+<!--    引入mysql的依赖-->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.47</version>
     </dependency>
 
+<!--    druid是一个数据库连接池,而数据库连接池用来管理,分配,释放数据库的连接,允许应用程序使用一个现有的数据库连接,而不是新建一个。”-->
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>druid</artifactId>
       <version>1.1.16</version>
     </dependency>
 
+<!--    测试用-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -69,6 +76,7 @@
       <scope>test</scope>
     </dependency>
 
+<!--    servlet专门用来接收客户端的请求,专门接收客户端的请求数据,然后调用底层的service处理数据并生成结果返回数据-->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
@@ -76,6 +84,7 @@
       <scope>provided</scope>
     </dependency>
 
+<!--    java与json之间的转换-->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>

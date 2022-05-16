@@ -1,8 +1,13 @@
 package com.itheima.controller;
 
+import com.fasterxml.jackson.databind.introspect.Annotated;
+import com.itheima.config.SpringConfig;
 import com.itheima.domain.Book;
 import com.itheima.service.BookService;
+import com.itheima.service.WriterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +18,9 @@ public class BookController {
 
     @Autowired
     private BookService bookService;
+
+    @Autowired
+    private WriterService writerService;
 
     @PostMapping
     public boolean save(@RequestBody Book book) {
@@ -38,4 +46,6 @@ public class BookController {
     public List<Book> getAll() {
         return bookService.getAll();
     }
+
+
 }
